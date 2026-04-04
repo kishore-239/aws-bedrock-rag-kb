@@ -1,0 +1,13 @@
+.env
+.claude/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.streamlit/
+streamlit.log
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
