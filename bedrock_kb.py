@@ -47,7 +47,7 @@ def retrieve_chunks(query: str, num_results: Optional[int] = None) -> list[dict]
             retrievalConfiguration={
                 "vectorSearchConfiguration": {
                     "numberOfResults": n,
-                    "overrideSearchType": "HYBRID",  # semantic + keyword, not just cosine
+                    "overrideSearchType": "SEMANTIC",
                 }
             },
         )
