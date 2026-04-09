@@ -22,6 +22,8 @@ streamlit.log
 
 # AWS credentials — never commit these
 *.csv
+*credentials*.json
+*accessKeys*.json
 
 # local tool and editor directories
 .*
