@@ -14,7 +14,7 @@ python3.11 -m pip install --upgrade pip
 
 echo "=== Cloning repo ==="
 # Replace with your actual repo URL
-git clone https://github.com/YOUR_USERNAME/enterprise-rag-bedrock.git
+git clone https://github.com/kishore-239/enterprise-rag-bedrock.git
 cd enterprise-rag-bedrock
 
 echo "=== Installing Python packages ==="
