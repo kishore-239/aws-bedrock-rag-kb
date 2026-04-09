@@ -20,6 +20,7 @@ class Config:
     )
 
     MAX_RESULTS = int(os.getenv("MAX_RESULTS", 5))
+    DEMO_MODE = os.getenv("DEMO_MODE", "false").lower() == "true"
 
     # rough token limits to avoid runaway costs during demos
     MAX_TOKENS_RESPONSE = 1024

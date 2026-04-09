@@ -1,13 +1,32 @@
+# env
 .env
-.claude/
+
+# Python
 __pycache__/
 *.pyc
 *.pyo
-.DS_Store
-.streamlit/
-streamlit.log
 *.egg-info/
 dist/
 build/
+
+# virtual environments
 .venv/
 venv/
+
+# OS
+.DS_Store
+
+# Streamlit
+.streamlit/
+streamlit.log
+
+# AWS credentials — never commit these
+*.csv
+
+# local tool and editor directories
+.*
+
+# local reference and test files
+reference/
+test_pdfs/
+demo_mode.py
