@@ -105,20 +105,27 @@ def generate_answer(query: str, chunks: list[dict]) -> str:
     """
     Call the foundation model with the retrieved context to generate an answer.
 
-    Using InvokeModel (not InvokeModelWithResponseStream) here for simplicity.
-    Switch to streaming if you want tokens to appear progressively in the UI.
+    Using Amazon Nova Lite — Amazon's own model, no third-party payment needed.
+    Nova uses a different payload format from Claude (messages with content list,
+    not the anthropic_version format).
     """
     session = get_boto_session()
     client = session.client("bedrock-runtime")
 
     prompt = build_prompt(query, chunks)
 
+    # Nova message format — content is a list of objects, not a plain string
     payload = {
-        "anthropic_version": "bedrock-2023-05-31",
-        "max_tokens": Config.MAX_TOKENS_RESPONSE,
         "messages": [
-            {"role": "user", "content": prompt}
+            {
+                "role": "user",
+                "content": [{"text": prompt}]
+            }
         ],
+        "inferenceConfig": {
+            "maxTokens": Config.MAX_TOKENS_RESPONSE,
+            "temperature": 0.1,
+        },
     }
 
     try:
@@ -127,7 +134,8 @@ def generate_answer(query: str, chunks: list[dict]) -> str:
             body=json.dumps(payload),
         )
         body = json.loads(response["body"].read())
-        return body["content"][0]["text"]
+        # Nova response path is different from Claude
+        return body["output"]["message"]["content"][0]["text"]
     except Exception as e:
         logger.error(f"InvokeModel failed: {e}")
         raise

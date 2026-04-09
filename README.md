@@ -22,7 +22,7 @@ Documents → S3 → Bedrock Ingestion → OpenSearch Serverless (vectors)
                                             ↓
 User Query → Bedrock Retrieve (hybrid search) → Top-K chunks
                                             ↓
-                              Claude Sonnet 4 (generate answer)
+                              Amazon Nova Lite (generate answer)
                                             ↓
                                     Answer + citations
 ```
@@ -37,7 +37,7 @@ Retrieval uses hybrid mode (semantic + keyword). Pure semantic search struggles 
 
 ### Prerequisites
 
-- AWS account with Bedrock access (Claude Sonnet 4 + Titan Embeddings v2 enabled in your region)
+- AWS account with Bedrock access (Amazon Nova Lite + Titan Embeddings v2 enabled in your region)
 - Python 3.11+
 - IAM user or EC2 role with: `bedrock:*`, `s3:*`, `iam:CreateRole`, `iam:PutRolePolicy`
 
@@ -124,7 +124,7 @@ For production use, attach an IAM role to the instance instead of putting creden
 |---|---|---|
 | Amazon Bedrock KB | Managed RAG | No vector DB ops, handles ingestion pipeline |
 | Titan Embeddings v2 | Embedding model | Tight integration with Bedrock KB |
-| Claude Sonnet 4 | LLM | Strong instruction-following and citation accuracy for RAG tasks |
+| Amazon Nova Lite | LLM | Amazon's own model — cost-effective, no third-party subscription needed |
 | OpenSearch Serverless | Vector store | Bedrock-managed, no cluster maintenance |
 | S3 | Document storage | Bedrock data source |
 | Streamlit | UI | Fast to build, easy to deploy |
