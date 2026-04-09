@@ -92,6 +92,14 @@ def render_query_section():
     st.title("Enterprise Knowledge Base Q&A")
     st.caption("Ask questions about your internal documents. Answers are grounded in the knowledge base — not general LLM knowledge.")
 
+    st.info(
+        "**How this works:** This is not a general-purpose chatbot like ChatGPT. "
+        "It only answers questions based on the documents uploaded to the knowledge base. "
+        "Upload your own PDFs or text files using the sidebar, wait for sync to complete, "
+        "then ask questions about that specific content. "
+        "Every answer includes the source document it came from."
+    )
+
     # keep chat history in session state so the conversation stays visible
     if "history" not in st.session_state:
         st.session_state["history"] = []
