@@ -4,6 +4,14 @@ A question-answering system that lets employees ask natural language questions a
 
 ---
 
+## Demo
+
+[![Demo Video](https://img.shields.io/badge/Watch%20Demo-Google%20Drive-blue?logo=googledrive)](https://drive.google.com/file/d/1YqUxSr7n8lGeUhHvApju1E2UE3MOSfoy/view)
+
+The demo shows the RAG pipeline in action — asking a question before uploading a document (no answer), then uploading the document and asking the same question (grounded answer with source citation). This proves the system retrieves from your actual documents, not from the LLM's training data.
+
+---
+
 ## What this does
 
 - Upload PDFs, Word docs, or text files through the UI
