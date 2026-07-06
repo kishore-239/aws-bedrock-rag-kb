@@ -1,4 +1,4 @@
-# env
+# Environment files
 .env
 
 # Python
@@ -9,7 +9,7 @@ __pycache__/
 dist/
 build/
 
-# virtual environments
+# Virtual environments
 .venv/
 venv/
 
@@ -20,15 +20,11 @@ venv/
 .streamlit/
 streamlit.log
 
-# AWS credentials — never commit these
-*.csv
+# AWS / local secrets
 *credentials*.json
 *accessKeys*.json
 
-# local tool and editor directories
-.*
-
-# local reference and test files
+# Local reference and test files
 reference/
 test_pdfs/
 demo_mode.py
